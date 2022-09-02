@@ -6,4 +6,15 @@ describe("Rubric App", function () {
 
     await expect(title).toHaveText("Rubric App");
   });
+  it("adds scores correctly when different grids are being clicked", async function () {
+    await browser.url("https://inspiring-wisp-f3b8d3.netlify.app/");
+
+    const grid1 = $("//tr[1]/td[3]");
+    const grid2 = $("//tr[2]/td[2]");
+    const grid3 = $("//tr[3]/td[1]");
+
+    grid1.click();
+    grid2.click();
+    grid3.click();
+  });
 });
