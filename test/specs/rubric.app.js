@@ -6,6 +6,7 @@ describe("Rubric App", function () {
 
     await expect(title).toHaveText("Rubric App");
   });
+
   it("adds scores correctly when different grids are being clicked", async function () {
     await browser.url("https://inspiring-wisp-f3b8d3.netlify.app/");
 
@@ -16,5 +17,11 @@ describe("Rubric App", function () {
     grid1.click();
     grid2.click();
     grid3.click();
+
+    const score = $("#score");
+    await expect(score).toHaveText("24");
+
+    const percent = $("#percent");
+    await expect(percent).toHaveText("80");
   });
 });
